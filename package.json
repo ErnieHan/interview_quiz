@@ -1,0 +1,116 @@
+{
+  "name": "interview_quiz",
+  "version": "0.1.0",
+  "private": true,
+  "main": "public/electron.js",
+  "homepage": "./",
+  "author": {
+    "name": "css-frontend",
+    "mail": "erxxnie.office@gmail.com"
+  },
+  "scripts": {
+    "start": "set PORT=8080 && react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "craco-build": "craco build",
+    "electron": "electron .",
+    "electron-start": "set REACT_APP_BUILD_ENV=dev && craco build && electron .",
+    "electron-build": "set REACT_APP_BUILD_ENV=dev && craco build && electron-builder build --linux"
+  },
+  "dependencies": {
+    "@codemirror/lang-html": "^6.4.8",
+    "@codemirror/lang-java": "^6.0.1",
+    "@codemirror/lang-javascript": "^6.2.2",
+    "@codemirror/lang-sass": "^6.0.2",
+    "@codemirror/lang-sql": "^6.6.2",
+    "@craco/craco": "^7.0.0",
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@fontsource/noto-sans-tc": "^5.0.17",
+    "@fontsource/roboto": "^5.0.8",
+    "@mui/icons-material": "^5.15.10",
+    "@reduxjs/toolkit": "^2.2.1",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@uiw/codemirror-theme-basic": "^4.21.25",
+    "@uiw/codemirror-theme-nord": "^4.21.25",
+    "@uiw/react-codemirror": "^4.21.25",
+    "antd": "^5.14.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^9.1.0",
+    "react-router-dom": "^6.22.1",
+    "react-scripts": "5.0.1",
+    "redux": "^5.0.1",
+    "sass": "^1.71.1",
+    "web-vitals": "^2.1.4"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@babel/plugin-transform-runtime": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "electron": "^23.0.0",
+    "electron-builder": "^23.6.0",
+    "enzyme": "^3.11.0",
+    "jest-cucumber": "^3.0.1",
+    "jsdom": "19.0.0",
+    "jsdom-global": "3.0.2",
+    "redux-mock-store": "^1.5.4",
+    "source-map-explorer": "^2.5.2",
+    "webpack-node-externals": "^3.0.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "build": {
+    "productName": "Interview Quiz",
+    "appId": "Interview Quiz",
+    "asar": true,
+    "directories": {
+      "output": "release/${version}"
+    },
+    "files": [
+      "dist",
+      "electron"
+    ],
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "include": "./public/installer.nsh",
+      "deleteAppDataOnUninstall": true
+    },
+    "mac": {
+      "category": "your.app.category.type",
+      "icon": "./public/icon.ico"
+    },
+    "win": {
+      "icon": "./public/icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "ia32"
+          ]
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ]
+    }
+  }
+}
